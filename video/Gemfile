@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.0"
+ruby "3.3.1"
 
-# Use main development branch of Rails
-gem "rails", github: "rails/rails", branch: "main"
+# Use 7.1 for the new Rails 7.1 defaults
+gem "rails", "~> 7.1" 
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
