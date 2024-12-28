@@ -33,6 +33,17 @@ docker run -d --rm -it --name video --env-file ./video/.env -v app-storage:/rail
 
 # Another Rails
 ```shell
+export POSTGRES_HOST=postgres
+export POSTGRES_DB=demodb_production
+export POSTGRES_USER=postgres
+export POSTGRES_PASSWORD=password
+export RAILS_MASTER_KEY=168814261ab73267da242073f651c820
+export VIRTUAL_HOST=tambu-tech.com
+export VIRTUAL_PORT=3000
+export LETSENCRYPT_HOST=tambu-tech.com
+export LETSENCRYPT_EMAIL=victoiremmanuelbarh@gmail.com
+export LETSENCRYPT_TEST=false
+
 docker build -t another_app ./another/.
 docker volume create app-storage
 docker run -d --rm -it --name another --env-file ./another/.env -v app-storage:/rails/storage --network everything_app another_app
