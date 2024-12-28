@@ -19,8 +19,8 @@ export POSTGRES_DB=prod_2
 export POSTGRES_USER=postgres
 export POSTGRES_PASSWORD=password
 export RAILS_MASTER_KEY=168814261ab73267da242073f651c820
-export VIRTUAL_HOST=another.tambu-tech.com
-export VIRTUAL_PORT=3001
+export VIRTUAL_HOST=tambu-tech.com
+export VIRTUAL_PORT=3000
 export LETSENCRYPT_HOST=tambu-tech.com
 export LETSENCRYPT_EMAIL=victoiremmanuelbarh@gmail.com
 export LETSENCRYPT_TEST=false
@@ -38,13 +38,13 @@ export POSTGRES_DB=demodb_production
 export POSTGRES_USER=postgres
 export POSTGRES_PASSWORD=password
 export RAILS_MASTER_KEY=168814261ab73267da242073f651c820
-export VIRTUAL_HOST=tambu-tech.com
-export VIRTUAL_PORT=3000
+export VIRTUAL_HOST=another.tambu-tech.com
+export VIRTUAL_PORT=3001
 export LETSENCRYPT_HOST=tambu-tech.com
 export LETSENCRYPT_EMAIL=victoiremmanuelbarh@gmail.com
 export LETSENCRYPT_TEST=false
 
-docker build -t another_app ./another/.
+docker build --secret id=POSTGRES_PASSWORD --secret id=POSTGRES_DB --secret id=POSTGRES_HOST --secret id=POSTGRES_USER --secret id=RAILS_MASTER_KEY  --secret id=VIRTUAL_HOST --secret id=VIRTUAL_PORT --secret id=LETSENCRYPT_HOST --secret id=LETSENCRYPT_EMAIL -t another_app ./another/.
 docker volume create app-storage
 docker run -d --rm -it --name another --env-file ./another/.env -v app-storage:/rails/storage --network everything_app another_app
 ```
