@@ -29,6 +29,7 @@ docker run -d --rm -it --name another --env-file ./another/.env -v app-storage:/
 # Postgres
 ```shell
 mkdir psql/postgres-data
-docker build -t psql ./psql/.
+export POSTGRES_PASSWORD="password"
+docker build --secret "id=POSTGRES_PASSWORD" -t psql ./psql/.
 docker network create everything_app 
 docker run -d --name postgres --env-file ./psql/.env -v postgres-data:/var/lib/postgresql/data --network everything_app psql
