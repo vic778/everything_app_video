@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 # check=skip=SecretsUsedInArgOrEnv
-ARG RUBY_VERSION=3.2.0
+ARG RUBY_VERSION=3.3.1
 FROM ruby:$RUBY_VERSION
 
 # Install packages need to build gems
