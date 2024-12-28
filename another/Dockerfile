@@ -1,4 +1,6 @@
-# Make sure it matches the Ruby version in .ruby-version and Gemfile
+# syntax=docker/dockerfile:1
+# check=skip=SecretsUsedInArgOrEnv
+
 ARG RUBY_VERSION=3.2.0
 FROM ruby:$RUBY_VERSION
 
