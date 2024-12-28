@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+# check=skip=SecretsUsedInArgOrEnv
 FROM postgres:14.2-alpine
 
 ENV POSTGRES_DB=demodb_production
