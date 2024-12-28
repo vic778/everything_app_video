@@ -30,4 +30,5 @@ docker run -d --rm -it --name another --env-file ./another/.env -v app-storage:/
 ```shell
 mkdir psql/postgres-data
 docker build -t psql ./psql/.
+docker network create everything_app 
 docker run -d --name postgres --env-file ./psql/.env -v postgres-data:/var/lib/postgresql/data --network everything_app psql
